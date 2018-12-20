@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>心愿榜单</title>
+    <link rel="stylesheet" href="./css/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui.min.css">
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            background-image: url('./images/bg2.jpg');
+            background-size: 100% 100%;
+            background-position: top left;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        .wish-list-box {
+            width: 15.2rem;
+            height: 27.3rem;
+            position: absolute;
+            top: 1.25rem;
+            left: 50%;
+            transform: translate(-50%,0);
+            background-image: url("./images/wish-list-bg.png");
+            background-size: 100% 100%;
+            background-position: top left;
+            background-repeat: no-repeat;
+        }
+        .wish-list-content {
+            width: 13.1rem;
+            height: 21.35rem;
+            position: absolute;
+            top: 16%;
+            left: 50%;
+            transform: translate(-50%,0);
+            overflow-y: scroll;
+        }
+        .wish-list-item {
+            border-bottom: 0.05rem solid rgba(103, 53, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            padding: 0.5rem 0;
+            font-size: 0.6rem;
+        }
+        .wish-list-item-left {
+            display: flex;
+            color: #673500;
+            font-size: 0.7rem;
+        }
+        .wish-list-item-left img:first-child {
+            width: 0.9rem;
+            height: 1.25rem;
+        }
+        .number {
+            width: 0.9rem;
+            text-align: center;
+            line-height: 1.45rem;
+        }
+        .wish-list-item-left img:nth-child(2) {
+            border-radius: 4rem;
+            width: 1.45rem;
+            height: 1.45rem;
+            margin: 0 0.4rem;
+        }
+        .name {
+            width: 2.25rem;
+            line-height: 1.45rem;
+            text-align: center;
+        }
+        .wish-list-item-right {
+            width: 1.45rem;
+            height: 1.2rem;
+            background-image: url(./images/heart.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            text-align: center;
+            margin-top: 0.1rem;
+        }
+        .back-icon {
+            width: 1.4rem;
+            height: 1.4rem;
+            position: absolute;
+            top: 0.85rem;
+            left: 0.55rem;
+        }
+        /* 背景音乐 */
+        .music {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 4rem;
+            position: absolute;
+            top: 4%;
+            right: 6%;
+            overflow: hidden;
+            z-index: 2;
+        }
+        .move {
+            animation: bgMusicMove 5s linear infinite;
+        }
+        .music img {
+            width: 100%;
+            height: 100%;
+        }
+        @keyframes bgMusicMove {
+            from {transform: rotate(0deg);}
+            50% {transform: rotate(-180deg);}
+            to {transform: rotate(-360deg);}
+        }
+        /* 背景音乐 结束 */
+    </style>
+
+</head>
+<body>
+    <div class="music move" id="Pmusic">
+        <img src="./images/music.png">
+        <audio id="music" src="./images/bgmusic.mp3" autoplay="autoplay" loop="loop"></audio>
+    </div>
+
+    <img class="back-icon" src="./images/back-icon.png" alt="back-icon">
+    <div class="wish-list-box">
+        <div class="wish-list-content">
+            <div class="wish-list-item">
+                <div class="wish-list-item-left">
+                    <img src="./images/list-1.png" alt="list-1">
+                    <img src="./images/7.png" alt="7">
+                    <p class="name">黄象棋</p>
+                </div>
+                <div class="wish-list-item-right">
+                    <p>300</p>
+                </div>
+            </div>
+            <div class="wish-list-item">
+                <div class="wish-list-item-left">
+                    <img src="./images/list-2.png" alt="list-2">
+                    <img src="./images/7.png" alt="7">
+                    <p class="name">黄象棋</p>
+                </div>
+                <div class="wish-list-item-right">
+                    <p>300</p>
+                </div>
+            </div>
+            <div class="wish-list-item">
+                <div class="wish-list-item-left">
+                    <img src="./images/list-3.png" alt="list-3">
+                    <img src="./images/7.png" alt="7">
+                    <p class="name">黄象棋</p>
+                </div>
+                <div class="wish-list-item-right">
+                    <p>300</p>
+                </div>
+            </div>
+            <div class="wish-list-item">
+                <div class="wish-list-item-left">
+                    <p class="number">4</p>
+                    <img src="./images/7.png" alt="7">
+                    <p class="name">黄象棋</p>
+                </div>
+                <div class="wish-list-item-right">
+                    <p>300</p>
+                </div>
+            </div>
+            <div class="wish-list-item">
+                <div class="wish-list-item-left">
+                    <p class="number">5</p>
+                    <img src="./images/7.png" alt="7">
+                    <p class="name">黄象棋</p>
+                </div>
+                <div class="wish-list-item-right">
+                    <p>300</p>
+                </div>
+            </div>
+            <div class="wish-list-item">
+                <div class="wish-list-item-left">
+                    <p class="number">6</p>
+                    <img src="./images/7.png" alt="7">
+                    <p class="name">黄象棋</p>
+                </div>
+                <div class="wish-list-item-right">
+                    <p>300</p>
+                </div>
+            </div>
+            <div class="wish-list-item">
+                <div class="wish-list-item-left">
+                    <p class="number">7</p>
+                    <img src="./images/7.png" alt="7">
+                    <p class="name">黄象棋</p>
+                </div>
+                <div class="wish-list-item-right">
+                    <p>300</p>
+                </div>
+            </div>
+            <div class="wish-list-item">
+                <div class="wish-list-item-left">
+                    <p class="number">8</p>
+                    <img src="./images/7.png" alt="7">
+                    <p class="name">黄象棋</p>
+                </div>
+                <div class="wish-list-item-right">
+                    <p>300</p>
+                </div>
+            </div>
+            <div class="wish-list-item">
+                <div class="wish-list-item-left">
+                    <p class="number">9</p>
+                    <img src="./images/7.png" alt="7">
+                    <p class="name">黄象棋</p>
+                </div>
+                <div class="wish-list-item-right">
+                    <p>300</p>
+                </div>
+            </div>
+            <div class="wish-list-item">
+                <div class="wish-list-item-left">
+                    <p class="number">10</p>
+                    <img src="./images/7.png" alt="7">
+                    <p class="name">黄象棋</p>
+                </div>
+                <div class="wish-list-item-right">
+                    <p>300</p>
+                </div>
+            </div>
+            <div class="wish-list-item">
+                <div class="wish-list-item-left">
+                    <p class="number">11</p>
+                    <img src="./images/7.png" alt="7">
+                    <p class="name">黄象棋</p>
+                </div>
+                <div class="wish-list-item-right">
+                    <p>300</p>
+                </div>
+            </div>
+            <div class="wish-list-item">
+                <div class="wish-list-item-left">
+                    <p class="number">12</p>
+                    <img src="./images/7.png" alt="7">
+                    <p class="name">黄象棋</p>
+                </div>
+                <div class="wish-list-item-right">
+                    <p>300</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/jquery-2.1.4.js"></script>
+    <script src="./js/jquery-weui.min.js"></script>
+    
+    <script>
+        $('.back-icon').click(() => window.location.href = './index.html');
+    </script>
+
+    <script>
+        // 控制背景音乐
+        var Pmusic=document.getElementById("Pmusic");
+        var music=document.getElementById("music");
+        Pmusic.addEventListener('click',function(){
+            if (music.paused){
+                music.play();
+                Pmusic.classList.add("move");
+            } else {
+                music.pause();
+                Pmusic.classList.remove("move");
+            }
+        });
+        var state = 0;
+        document.addEventListener('click', function(){
+            if( state == 0 ){
+                music.play();
+                state = 1;
+            }
+        }, false);
+        document.addEventListener('DOMContentLoaded', function () {
+            function audioAutoPlay() {
+                var audio = document.getElementById('music');
+                    audio.play();
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    audio.play();
+                }, false);
+            }
+            audioAutoPlay();
+        });
+    </script>
+
+    <script type="text/javascript" >
+        /*网页字跟随页面自动变化*/
+        function setRem(){
+            /*获取当前页面的宽度*/
+            let width = document.body.offsetWidth;
+            /*设置页面的字体大小*/
+            let nowFont= width/375*20;
+            /*通过标签名称来获取元素*/
+            let htmlFont= document.getElementsByTagName('html')[0];
+            // 给获取到的元素的字体大小赋值
+            htmlFont.style.fontSize =nowFont+"px";
+        }
+        setRem();
+        window.onresize=setRem;  //监听屏幕变化
+    </script>
+</body>
+</html>

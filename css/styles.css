@@ -1,0 +1,505 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #03135c;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+}
+/* 遮罩层 */
+.layer1,
+.layer2,
+.layer3,
+.layer4 {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+}
+.layer5 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 999;
+}
+.x {
+    position: absolute;
+    top: 99%;
+    left: 43%;
+    z-index: 999;
+}
+.x img {
+    width: 1.75rem;
+}
+/* 遮罩层 结束 */
+/* 背景音乐 */
+.music {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 4rem;
+    position: absolute;
+    top: 4%;
+    left: 6%;
+    overflow: hidden;
+    z-index: 2;
+}
+.move {
+    animation: bgMusicMove 5s linear infinite;
+}
+.music img {
+    width: 100%;
+    height: 100%;
+}
+@keyframes bgMusicMove {
+    from {transform: rotate(0deg);}
+    50% {transform: rotate(-180deg);}
+    to {transform: rotate(-360deg);}
+}
+/* 背景音乐 结束 */
+/* 背景 */
+.bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+/* 背景 结束 */
+/* 圣诞树 */
+.christmas-tree {
+    width: 13.9rem;
+    height: 20rem;
+    background-image: url(../images/christmas-trees.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: top left;
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%,0);
+    z-index: 2;    
+}
+.gift {
+    background-color: transparent;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url(../images/boll.png);
+    background-size: 100% 100%;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: giftMove 3s linear infinite alternate;
+}
+.gift img {
+    width: 80%;
+    height: 80%;
+    margin-top: 10%;
+    margin-left: 10%;
+}
+.gift:nth-child(1) {
+    top: 12%;
+    left: 27%;
+}
+.gift:nth-child(2) {
+    top: 16%;
+    left: 46%;
+}
+.gift:nth-child(3) {
+    top: 28%;
+    left: 30%;
+}
+.gift:nth-child(4) {
+    top: 33%;
+    left: 66%;
+}
+.gift:nth-child(5) {
+    top: 44%;
+    left: 3%;
+}
+.gift:nth-child(6) {
+    top: 47%;
+    left: 31%;
+}
+.gift:nth-child(7) {
+    top: 49%;
+    left: 64%;
+}
+.gift:nth-child(8) {
+    top: 60%;
+    left: -3%;
+}
+.gift:nth-child(9) {
+    top: 62%;
+    left: 24%;
+}
+.gift:nth-child(10) {
+    top: 65%;
+    left: 57%;
+}
+.gift:nth-child(11) {
+    top: 60%;
+    left: 85%;
+}
+@keyframes giftMove {
+    from {
+        transform: scale(1,1);
+    }
+    to {
+        transform: scale(1.3,1.3);
+    }
+}
+.take-wish-bubble {
+    width: 2.95rem;
+    height: 2.45rem;
+    position: absolute;
+    top: 12%;
+    left: 0%;
+    animation: makeWish 1.5s 1s linear infinite;
+    z-index: 2;
+}
+/* 圣诞树结束 */
+/* 标题图片 */
+.title {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    z-index: 2;
+}
+.title img {
+    width: 7.5rem;
+}
+/* 标题图片 结束 */
+/* 右上方按钮 */
+.top-buttom {
+    position: absolute;
+    top: 5%;
+    right: 0;
+    z-index: 2;
+}
+.top-buttom img {
+    width: 4.45rem;
+}
+.footer-buttom img {
+    width: 5.3rem;
+}
+.my-wish-btn {
+    position: relative;
+    z-index: 667;
+}
+.buttom:nth-child(1) {
+    margin-bottom: 1rem;
+}
+/* 右上方按钮 结束 */
+/* 页脚按钮 */
+.footer {
+    padding-bottom: 0.5rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: url('../images/light.png');
+    background-size: 100% auto;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    z-index: 666;
+}
+/* 页脚按钮 结束 */
+/* 雪人 */
+.snowman {
+    display: flex;
+    position: absolute;
+    top: 75%;
+    left: 5%;
+    z-index: 666;
+    padding-bottom: 1rem;
+}
+.snowman-img {
+    width: 2.95rem;
+    height: 3.95rem;
+    position: relative;
+    z-index: 2;
+    transform-origin: center bottom;
+    animation:  snowmanMove 3s linear infinite;
+}
+@keyframes snowmanMove {
+    from {transform: rotate(0deg);}
+    25% {transform: rotate(15deg);}
+    50% {transform: rotate(0deg);}
+    75% {transform: rotate(-15deg);}
+    to {transform: rotate(0deg);}
+}
+.make-wish-bubble {
+    width: 3.5rem;
+    height: 2.9rem;
+    position: relative;
+    top: 1rem;
+    animation: makeWish 1.5s linear infinite;
+}
+@keyframes makeWish {
+    from {transform: scale(1,1);}
+    10% {transform: scale(1.15,1.15);}
+    20% {transform: scale(1,1);}
+    30% {transform: scale(1.1,1.1);}
+    40% {transform: scale(1,1);}
+    50% {transform: scale(1.05,1.05);}
+    60% {transform: scale(1,1);}
+    to {transform: scale(1,1);}
+}
+.snow {
+    width: 100%;
+    position: absolute;
+    left: -0.7rem;
+    bottom: 0.25rem;
+    z-index: -1;
+}
+/* 雪人 结束 */
+/* 魔法棒 */
+.stick {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    width: 5rem;
+    transform-origin: 100% 100%;
+    z-index: 3;
+}
+.stick-move {
+    animation: stickMove 1s ease-in-out;
+}
+.stick img {
+    width: 5rem;
+}
+@keyframes stickMove {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(-30deg);}
+    100% {transform: rotate(0deg);}
+}
+.change-wish-bubble {
+    width: 3rem;
+    height: 2.4rem;
+    position: absolute;
+    top: 31%;
+    right: 3.6rem;
+    z-index: 2;
+    animation: makeWish 1.5s 2s linear infinite;
+}
+/* 魔法棒结束 */
+/* 许愿规则 */
+.wish-rule {
+    width: 16rem;
+    height: 23.5rem;
+    background-image: url('../images/wish-rule-bg.png');
+    background-size: 100% 100%;
+    background-position: top left;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1000;
+    margin: 0 auto;
+}
+.wish-rule-content {
+    width: 11.75rem;
+    height: 11.75rem;
+    position: absolute;
+    top: 37%;
+    left: 12%;
+    font-size: 0.7rem;
+    color: #673500;
+    line-height: 1em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.arrow {
+    width: 1rem;
+    position: absolute;
+    top: 88%;
+    left: 48%;
+    transform: translate(-50%,0);
+    position: relative;
+}
+.arrow::after,
+.arrow::before {
+    content: '';
+    display: block;
+    width: 90%;
+    border-top: 3px solid #673500;
+    position: absolute;
+}
+.arrow::after {
+    transform: rotate(45deg);
+    transform-origin: top left;
+    left: -1px;
+}
+.arrow::before {
+    transform: rotate(-45deg);
+    transform-origin: top right;
+    right: -1px;
+}
+.wish-rule-content p {
+    color: #000;
+    font-weight: bold;
+    padding: 0.4rem 0.65rem;
+    background: #FFB600;
+    border-radius: 5rem;
+    display: inline-block;
+}
+.wish-rule-content span {
+    display: block;
+    line-height: 1.15rem;
+    margin: 0.5rem 0;
+}
+/* 许愿规则 结束 */
+/* 许愿输入框 */
+.make-wish {
+    width: 16rem;
+    height: 19.55rem;
+    background-image: url("../images/make-wish-bg.png");
+    background-size: 100% 100%;
+    background-position: top left;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    position: relative;
+}
+.make-wish textarea {
+    background: #ddd;
+    width: 11.35rem;
+    height: 6rem;
+    position: absolute;
+    top: 46%;
+    left: 49%;
+    transform: translate(-50%,0);
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 0.7rem;
+    color: #E07666;
+}
+.make-wish textarea::-webkit-input-placeholder {
+    color: #E07666;
+}
+.make-wish-btn {
+    width: 5.1rem;
+    position: absolute;
+    top: 84%;
+    left: 49%;
+    transform: translate(-50%,0);
+}
+/* 许愿输入框 结束 */
+/* 查看好友愿望 */
+.text {
+    width: 16.7rem;
+    margin-top: 0.6rem;
+    margin-left: 0.8rem;
+    color: #fff;
+    font-size: 0.7rem;
+}
+.friends-wish-list {
+    width: 15.2rem;
+    height: 23.4rem;
+    background-image: url(../images/friend-wish-bg.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0.65rem auto 0;
+    position: relative;
+}
+.close-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    position: absolute;
+    top: 7%;
+    right: 5%;
+}
+.friends-wish-list-content {
+    width: 13.05rem;
+    height: 19rem;
+    overflow: scroll;
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+.friends-wish-item {
+    width: 13.05rem;
+    font-size: 0.7rem;
+    color: #673500;
+    line-height: 1.45rem;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    border-bottom: 0.05rem solid rgba(103, 53, 0, 0.1);
+}
+.friends-wish-item-left {
+    display: flex;
+}
+.friends-wish-item-left img {
+    border-radius: 4rem;
+    width: 1.45rem;
+    height: 1.45rem;
+    margin-right: 0.5rem;
+}
+/* 查看好友愿望 结束 */
+/* 生成海报 */
+.poster {
+    width: 14.75rem;
+    height: 23.2rem;
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    transform: translate(-50%,0);
+    z-index: 1000;
+}
+.layer4 img[alt='text']{
+    width: 11.45rem;
+    margin: 1.5rem auto 0.5rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+    z-index: 1000;
+}
+.poster img {
+    width: 100%;
+}
+#code canvas {
+    display: none;
+}
+/* 生成海报 结束 */
+.snowflake {
+    transform: rotate(0deg);
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    /* z-index: -1; */
+    animation: snowflake 6s linear infinite;
+}
+@keyframes snowflake {
+    to {
+        transform: translateY(500px) rotateZ(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(250px) rotateZ(-360deg);
+        opacity: 1;
+    }
+    from {
+        transform: translateY(0) rotate(-720deg);
+        opacity: 0;
+    }
+}
+/* @keyframes snowflakeDowm {
+    to {transform: translate(0px,100px);}
+    from {transform: translate(0px,100px);}
+} */

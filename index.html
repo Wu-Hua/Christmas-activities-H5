@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圣诞心愿树</title>
+    <link rel="stylesheet" href="./css/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <img class="snowflake" src="./images/snowflake.png" alt="snowflake">
+    <div class="music move" id="Pmusic">
+        <img src="./images/music.png">
+        <audio id="music" src="./images/bgmusic.mp3" autoplay="autoplay" loop="loop"></audio>
+    </div>
+    <img class="bg" src="./images/bg1.jpg" alt="bg">
+    <div class="title">
+        <img src="./images/title.png" alt="title">
+    </div>
+    <div class="top-buttom">
+        <div class="buttom">
+            <img class="rule-button" src="./images/rule.png" alt="rule">
+        </div>
+        <div class="buttom">
+            <img class="poster-btn" src="./images/wish-poster.png" alt="wish-poster">
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-buttom">
+            <img class="my-wish-btn" src="./images/my-wish.png" alt="my wish">
+        </div>
+        <div class="footer-buttom">
+            <img class="friends-wish-btn" src="./images/friends-wish.png" alt="friends-wish">
+        </div>
+        <div class="footer-buttom">
+            <img class="wish-list" src="./images/wish-list.png" alt="wish-list">
+        </div>
+    </div>
+    <div class="christmas-tree">
+        <div class="gift">
+            <img class="gift-img" src="./images/1.png" alt="1.png">
+        </div>
+        <div class="gift">
+            <img class="gift-img" src="./images/2.png" alt="1.png">
+        </div>
+        <div class="gift">
+            <img class="gift-img" src="./images/3.png" alt="1.png">
+        </div>
+        <div class="gift">
+            <img class="gift-img" src="./images/4.png" alt="1.png">
+        </div>
+        <div class="gift">
+            <img class="gift-img" src="./images/5.png" alt="1.png">
+        </div>
+        <div class="gift">
+            <img class="gift-img" src="./images/6.png" alt="1.png">
+        </div>
+        <div class="gift">
+            <img class="gift-img" src="./images/7.png" alt="1.png">
+        </div>
+        <div class="gift">
+            <img class="gift-img" src="./images/8.png" alt="1.png">
+        </div>
+        <div class="gift">
+            <img class="gift-img" src="./images/9.png" alt="1.png">
+        </div>
+        <div class="gift">
+            <img class="gift-img" src="./images/10.png" alt="1.png">
+        </div>
+        <div class="gift">
+            <img class="gift-img" src="./images/11.png" alt="1.png">
+        </div>
+        <img class="take-wish-bubble" src="./images/take-wish-bubble.png" alt="take-bubble">
+    </div>
+    <div class="snowman">
+        <img class="snowman-img" src="./images/snowman.png" alt="snowman">
+        <img class="make-wish-bubble" src="./images/make-wish.png" alt="make-wish">
+        <img class="snow" src="./images/snow.png" alt="snow">
+    </div>
+    
+    <img class="stick" id="stick" src="./images/stick.png" alt="stick">
+    <img class="change-wish-bubble" src="./images/change-wish-bubble.png" alt="change-wish-bubble">
+
+    <div class="layer1">
+        <div class="wish-rule">
+            <div class="wish-rule-content">
+                <p>活动规则：</p>
+                <span>1、参与游戏即可获得5000元购车卷</span>
+                <span>2、每人每天只能许愿一次（心愿值+1）</span>
+                <span>3、每天第一次转发游戏增加许愿次数1次</span>
+                <span>4、摘取心愿，并助力实现心愿（每天前3次助力都能+1心愿值）</span>
+                <span>5、转发心愿给他人，每有一个“助力实现”都能+1心愿值</span>
+                <span>6、邀请别人填写心愿，每个心愿都能+1心愿值</span>
+                <span>7、心愿值最高的前几名，将获得相应的心愿值帮助基金</span>
+                <p>活动奖品：</p>
+                <span>一等奖：500元现金基金+10000元购车劵+价值1000元圣诞礼品大礼包（1名）</span>
+                <span>二等奖：200元现金基金+8000元购车劵+价值500元圣诞礼品大礼包（2名）</span>
+                <span>三等奖：100元现金基金+6000元购车劵+价值300元圣诞礼品大礼包（5名）</span>
+                <span>注：奖品由公众号“华算车”在活动结束颁发，请获奖的人注意公众号推文提示信息。</span>
+                <p>活动时间：</p>
+                <span>2018年12月24日—2018年1月1日（为期10天）</span>
+            </div>
+            <div class="arrow"></div>
+            <div class="x">
+                <img src="./images/close.png" alt="close">
+            </div>
+        </div>
+    </div>
+
+    <div class="layer2">
+        <div class="make-wish">
+            <form action="">
+                <textarea class="input-wish" name="make-wish" cols="30" rows="10" placeholder="宣言要好好写哦~让好友看了想哭，有助于你早日赢大奖"></textarea>
+                <img class="make-wish-btn" src="./images/make-wish-btn.png" alt="make-wish-btn">
+            </form>
+            <div class="x">
+                <img src="./images/close.png" alt="close">
+            </div>
+        </div>
+    </div>
+
+    <div class="layer3">
+        <p class="text">你想知道，别人的圣诞心愿是什么吗？<br/>点击“心愿海报”形成你的心愿二维码，分享给“TA”，你将会知道你的那个“TA”的心愿哦。</p>
+        <div class="friends-wish-list">
+            <img class="close-icon" src="./images/close-icon.png" alt="close-icon">
+            <div class="friends-wish-list-content">
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+                <div class="friends-wish-item">
+                    <div class="friends-wish-item-left">
+                        <img src="./images/7.png" alt="7">
+                        <p class="name">黄象棋</p>
+                    </div>
+                    <p>2018/10/11 12:56</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layer4">
+        <div class="layer5"></div>
+        <img src="./images/text-2.png" alt="text">
+        <div class="poster">
+            <img alt="poster" id="show">
+            <div id="code"></div>
+        </div>
+    </div>
+
+
+    <script src="./js/jquery-2.1.4.js"></script>
+    <script src="./js/jquery-qrcode.min.js"></script>
+    <script src="./js/jquery-weui.min.js"></script>
+
+    <script>
+        // 克隆雪花随机css元素
+        var snowflake = $('.snowflake');
+        for(let i = 0 ; i < 10 ; i++ ) {   
+            let breadth = Math.floor(Math.random()*9 + 1);
+            let top = Math.floor(Math.random()*20 + 1);
+            let left = Math.floor(Math.random()*100);
+            let second = Math.floor(Math.random()*(9-6+1)+6)
+            let newSnowflake = snowflake.clone();
+
+            newSnowflake.css({
+                width: '1.' + breadth + 'rem',
+                height: '1.' + breadth + 'rem',
+                top: top + '%',
+                left: left + '%',
+                animation: 'snowflake ' + second + 's linear infinite'
+            });
+            $('body').prepend(newSnowflake);
+        }
+    </script>
+
+    <script>
+        // 跳转到好友心愿
+        $('.friends-wish-item').click(() => window.location.href = './someone-wish.html');
+    </script>
+    
+    <script>
+        $('body').css('height', $(document.body).outerHeight(true) + 'px');
+        // 点击隐藏遮罩层
+        var x = $('.x');
+        var x2 = $('.close-icon');
+        x.click(function(){
+            $('.layer1').css('display','none');
+            $('.layer2').css('display','none');
+        });
+        x2.click(()=>$('.layer3').css('display','none'));
+
+        $('.layer5').click(()=>$('.layer4').css('display','none'));
+
+        // 点击各种按钮，打开各种遮罩层，跳转到各个页面
+        var ruleBtn = $('.rule-button');
+        var intoMakeWish = $('.snowman');
+        var wishListBtn = $('.wish-list');
+        var friendsWishBtn = $('.friends-wish-btn');
+        var myWishBtn = $('.my-wish-btn');
+        var posterBtn = $('.poster-btn');
+        var makeWishBtn = $('.make-wish-btn');
+        ruleBtn.click(function(){
+            $('.layer1').css('display','block');
+        });
+        intoMakeWish.click(function(){
+            $('.layer2').css('display','block');
+        });
+        wishListBtn.click(() => window.location.href = './wish-list.html');
+        friendsWishBtn.click(() => $('.layer3').css('display','block'));
+        myWishBtn.click(() => window.location.href = './my-wishes.html');
+        posterBtn.click(() => $('.layer4').css('display','block'));
+        makeWishBtn.click(function(){
+            var textarea = $('.input-wish');
+            if(textarea.val()) {
+                $.toast("许愿成功", "text");
+                window.location.href = './my-wishes.html';
+            } else {
+                $.toast("请许愿", "text");
+            }
+        });
+    </script>
+
+    <script>
+        // 点击圣诞树礼物 跳转到随机用户的心愿上
+        var giftBubble = document.getElementsByClassName('gift');
+        for(let i = 0 ; i < giftBubble.length ; i++) {
+            giftBubble[i].addEventListener('click',() => window.location.href = './someone-wish.html');
+        }
+    </script>
+
+    <script>
+        // 点击魔法棒 更改圣诞树礼物
+        var stick = document.querySelector('#stick');
+        var changeWishBubble = document.querySelector('.change-wish-bubble');
+
+        stick.addEventListener('click',stickMove);
+        changeWishBubble.addEventListener('click',stickMove);
+
+        var giftImgSrc = [
+            './images/1.png',
+            './images/2.png',
+            './images/3.png',
+            './images/4.png',
+            './images/5.png',
+            './images/6.png',
+            './images/7.png',
+            './images/8.png',
+            './images/9.png',
+            './images/10.png',
+            './images/11.png',
+        ]
+
+        function stickMove(){
+            // 魔法棒动画
+            stick.classList.add('stick-move');
+            stick.removeEventListener('click',stickMove);
+            changeWishBubble.removeEventListener('click',stickMove);
+            setTimeout(function(){
+                stick.classList.remove('stick-move');
+                changeWishBubble.addEventListener('click',stickMove);
+                stick.addEventListener('click',stickMove);
+            },1001);
+
+            // 更改圣诞树礼物
+            var giftImg = document.getElementsByClassName('gift-img');
+            for(let i = 0; i < giftImg.length ; i++ ) {
+                var num = Math.floor(Math.random()*11);
+                giftImg[i].setAttribute('src',giftImgSrc[num]);
+            }
+        }
+    </script>
+
+    <script>
+        // 生成二维码海报
+        // 生成二维码
+        $('#code').qrcode({text:"http://www.baidu.com"});
+        // 给二维码添加id
+        var code = $('#code canvas');
+        code.attr('id','qrcode');
+        // 将生成二维码的canvas生成图片 的函数
+        function convertCanvasToImage(canvas) {
+            var image = new Image();
+            image.src = canvas.toDataURL("image/png");
+            return image.getAttribute('src');
+        }
+
+        // 用canvas画分享海报
+        var c = document.createElement('canvas');
+        var ctx = c.getContext('2d');
+
+        c.width = 590;
+        c.height = 928;
+        // 海报背景图片
+        var img = new Image();
+        img.src = './images/poster.png';
+        
+        img.onload = function() {
+            ctx.drawImage(img,0,0,590,928);
+            var img2 = new Image()
+            // 用户头像图片地址
+            img2.src = './images/photo.jpg'
+
+            img2.onload = () => {
+                ctx.drawImage(img2, 60, 240,90,90);
+                var img3 = new Image()
+                // 二维码图片
+                img3.src = convertCanvasToImage(document.getElementById('qrcode'));
+                img3.onload = function(){
+                    ctx.drawImage(img3, 188, 450,210,210);
+                    ctx.textAlign = "center";
+                    ctx.fillStyle = '#000';
+                    ctx.font="30px Arial";
+                    // 用户名
+                    ctx.fillText("俺不懂",210,272);
+                    // 生成一张海报
+                    var base64 = c.toDataURL('image/jpeg');
+                    var show = document.getElementById('show');
+                    show.setAttribute('src',base64);
+                }
+            }
+        }
+    </script>
+
+    <script>
+        // 控制背景音乐
+        var Pmusic=document.getElementById("Pmusic");
+        var music=document.getElementById("music");
+        Pmusic.addEventListener('click',function(){
+            if (music.paused){
+                music.play();
+                Pmusic.classList.add("move");
+            } else {
+                music.pause();
+                Pmusic.classList.remove("move");
+            }
+        });
+        var state = 0;
+        document.addEventListener('click', function(){
+            if( state == 0 ){
+                music.play();
+                state = 1;
+            }
+        }, false);
+        document.addEventListener('DOMContentLoaded', function () {
+            function audioAutoPlay() {
+                var audio = document.getElementById('music');
+                    audio.play();
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    audio.play();
+                }, false);
+            }
+            audioAutoPlay();
+        });
+    </script>
+
+    <script>
+        // 解决弹出软键盘ios底部会留白
+        $(document).on('focusout', function () {
+            $('html,body').scrollTop(0);
+        });
+    </script>
+
+    <script type="text/javascript" >
+        /*网页字跟随页面自动变化*/
+        function setRem(){
+            /*获取当前页面的宽度*/
+            let width = document.body.offsetWidth;
+            /*设置页面的字体大小*/
+            let nowFont= width/375*20;
+            /*通过标签名称来获取元素*/
+            let htmlFont= document.getElementsByTagName('html')[0];
+            // 给获取到的元素的字体大小赋值
+            htmlFont.style.fontSize =nowFont+"px";
+        }
+        setRem();
+        window.onresize=setRem;  //监听屏幕变化
+    </script>
+</body>
+</html>

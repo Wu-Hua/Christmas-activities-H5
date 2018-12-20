@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的心愿</title>
+    <link rel="stylesheet" href="./css/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            color: #673500;
+            font-size: 0.7rem;
+            background-color: #020E44;
+            /* background-image: url(./images/bg2.jpg);
+            background-size: 100%;
+            background-position: top left;
+            background-repeat: no-repeat; */
+            -webkit-overflow-scrolling: touch;
+        }
+        .back-icon {
+            width: 1.4rem;
+            height: 1.4rem;
+            position: absolute;
+            z-index: 666;
+            top: 0.85rem;
+            left: 0.55rem;
+        }
+        .my-wish {
+            width: 100%;
+            background-image: url(./images/bg2.jpg);
+            background-size: 100%;
+            background-position: top left;
+            background-repeat: no-repeat;
+        }
+        .my-wish-content {
+            width: 16rem;
+            height: 21.35rem;
+            margin: 0 auto;
+            position: relative;
+        }
+        .my-wishes-bg {
+            width: 16rem;
+            height: 21.35rem;
+        }
+        .wish-content {
+            width: 11.2rem;
+            height: 7rem;
+            position: absolute;
+            top: 40%;
+            left: 49%;
+            transform: translate(-50%,0);
+            overflow: scroll;
+            word-wrap: break-word;
+        }
+        .invite-friends-btn {
+            width: 5.1rem;
+            position: absolute;
+            bottom: 3.5rem;
+            left: 49%;
+            transform: translate(-50%,0);
+        }
+        .my-wish-inner-box {
+            display: flex;
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+        }
+        .my-wish-inner-box img {
+            width: 3.05rem;
+            height: 0.95rem;
+            margin-right: 0.25rem;
+        }
+        .my-wish-inner-box p {
+            width: 1.45rem;
+            height: 1.2rem;
+            background-image: url(./images/heart.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            line-height: 1.2rem;
+            font-size: 0.6rem;
+            text-align: center;
+            margin-top: -0.15rem;
+        }
+        .check-wishes {
+            width: 100%;
+            padding: 1.75rem 1.1rem;
+            box-sizing: border-box;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+        .check-wishes-box {
+            width: 4.25rem;
+            height: 4.25rem;
+            box-sizing: border-box;
+            border-radius: 0.5rem;
+            display: inline-block;
+            margin-left: 0.75rem;
+            border: 3px solid transparent;
+        }
+        .pitch-on {
+            border: 3px solid #F75270;
+        }
+        .none-wish {
+            background: #F4F4F4;
+        }
+        .has-wish {
+            background: #ffffe4;
+        }
+        .check-wishes-box:first-child {
+            margin-left: 0;
+        }
+        .check-wishes-box img {
+            width: 100%;
+            height: 100%;
+        }
+        img[alt='light'] {
+            width: 100%;
+            height: 1.65rem;
+        }
+        .helped-me {
+            width: 15.2rem;
+            height: 19.15rem;
+            margin: 2rem auto;
+            background-image: url(./images/helped-me-bg.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .helped-me-list {
+            width: 13rem;
+            height: 16rem;
+            position: absolute;
+            top: 12%;
+            left: 50%;
+            transform: translate(-50%,0);
+            overflow: scroll;
+        }
+        .helped-me-item {
+            width: 100%;
+            padding: 0.5rem 0;
+            border-bottom: 0.05rem solid rgba(103, 53, 0, .1);
+            display: flex;
+            justify-content: space-between;
+            line-height: 1.45rem;
+        }
+        .user {
+            display: flex;
+        }
+        .user img {
+            border-radius: 4rem;
+            width: 1.45rem;
+            height: 1.45rem;
+            margin-right: 0.25rem;
+        } 
+        .layer4 {
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 998;
+        }
+        .layer5 {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 999;
+        }
+        /* 生成海报 */
+        .poster {
+            width: 14.75rem;
+            height: 23.2rem;
+            position: absolute;
+            top: 14%;
+            left: 50%;
+            transform: translate(-50%,0);
+            z-index: 1000;
+        }
+        .layer4 img[alt='text']{
+            width: 11.45rem;
+            margin: 1.5rem auto 0.5rem;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,0);
+            z-index: 1000;
+        }
+        .poster img {
+            width: 100%;
+        }
+        #code canvas {
+            display: none;
+        }
+        /* 生成海报 结束 */
+        /* 背景音乐 */
+        .music {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 4rem;
+            position: absolute;
+            top: 4%;
+            right: 6%;
+            overflow: hidden;
+            z-index: 2;
+        }
+        .move {
+            animation: bgMusicMove 5s linear infinite;
+        }
+        .music img {
+            width: 100%;
+            height: 100%;
+        }
+        @keyframes bgMusicMove {
+            from {transform: rotate(0deg);}
+            50% {transform: rotate(-180deg);}
+            to {transform: rotate(-360deg);}
+        }
+        /* 背景音乐 结束 */
+    </style>
+
+</head>
+<body>
+    <div class="music move" id="Pmusic">
+        <img src="./images/music.png">
+        <audio id="music" src="./images/bgmusic.mp3" autoplay="autoplay" loop="loop"></audio>
+    </div>
+
+    <img class="back-icon" src="./images/back-icon.png" alt="back-icon">
+
+    <div class="my-wish">
+        <div class="my-wish-content">
+            <img class="my-wishes-bg" src="./images/my-wishes-bg.png">
+            <p class="wish-content">白萝卜来吧来吧来吧来吧来吧来吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜来吧来吧来吧来吧来吧来吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜梁宝玲白萝卜来吧来吧来吧来吧来吧来吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜来吧来吧来吧来吧来吧来吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜梁宝玲白萝卜来吧来吧来吧来吧来吧来吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜来吧来吧来吧来吧来吧来吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜梁宝玲白萝卜来吧来吧来吧来吧来吧来吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜来吧来吧来吧来吧来吧来吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜梁宝玲白萝卜来吧来吧来吧来吧来吧来吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜来吧来吧来吧来吧来吧来吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜梁宝玲白萝卜来吧来吧来吧来吧来吧来吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜来吧来吧来吧来吧来吧来吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜梁宝玲</p>
+            <img class="invite-friends-btn" src="./images/invite-friends-btn.png" alt="invite-friends-btn">
+            <div class="my-wish-inner-box">
+                <img src="./images/wish-count-text.png" alt="wish-count-text">
+                <p>100</p>
+            </div>
+        </div>
+        <div class="check-wishes">
+            <div class="check-wishes-box none-wish pitch-on">
+                <img class="gift-img" src="./images/wish-1-n.png" alt="wish">
+            </div> 
+            <div class="check-wishes-box none-wish">
+                <img class="gift-img" src="./images/wish-2-n.png" alt="wish">
+            </div> 
+            <div class="check-wishes-box none-wish">
+                <img class="gift-img" src="./images/wish-3-n.png" alt="wish">
+            </div> 
+            <div class="check-wishes-box none-wish">
+                <img class="gift-img" src="./images/wish-4-n.png" alt="wish">
+            </div> 
+            <div class="check-wishes-box none-wish">
+                <img class="gift-img" src="./images/wish-5-n.png" alt="wish">
+            </div> 
+        </div>
+    </div>
+
+    <img src="./images/light.png" alt="light">
+
+    <div class="helped-me">
+        <div class="helped-me-list">
+            <div class="helped-me-item">
+                <div class="user">
+                    <img src="./images/7.png" alt="7">
+                    <p class="user-name">俺不懂</p>
+                </div>
+                <p class="time">2018/10/11 12:56</p>
+            </div>
+            <div class="helped-me-item">
+                <div class="user">
+                    <img src="./images/7.png" alt="7">
+                    <p class="user-name">俺不懂</p>
+                </div>
+                <p class="time">2018/10/11 12:56</p>
+            </div>
+            <div class="helped-me-item">
+                <div class="user">
+                    <img src="./images/7.png" alt="7">
+                    <p class="user-name">俺不懂</p>
+                </div>
+                <p class="time">2018/10/11 12:56</p>
+            </div>
+            <div class="helped-me-item">
+                <div class="user">
+                    <img src="./images/7.png" alt="7">
+                    <p class="user-name">俺不懂</p>
+                </div>
+                <p class="time">2018/10/11 12:56</p>
+            </div>
+            <div class="helped-me-item">
+                <div class="user">
+                    <img src="./images/7.png" alt="7">
+                    <p class="user-name">俺不懂</p>
+                </div>
+                <p class="time">2018/10/11 12:56</p>
+            </div>
+            <div class="helped-me-item">
+                <div class="user">
+                    <img src="./images/7.png" alt="7">
+                    <p class="user-name">俺不懂</p>
+                </div>
+                <p class="time">2018/10/11 12:56</p>
+            </div>
+            <div class="helped-me-item">
+                <div class="user">
+                    <img src="./images/7.png" alt="7">
+                    <p class="user-name">俺不懂</p>
+                </div>
+                <p class="time">2018/10/11 12:56</p>
+            </div>
+            <div class="helped-me-item">
+                <div class="user">
+                    <img src="./images/7.png" alt="7">
+                    <p class="user-name">俺不懂</p>
+                </div>
+                <p class="time">2018/10/11 12:56</p>
+            </div>
+            <div class="helped-me-item">
+                <div class="user">
+                    <img src="./images/7.png" alt="7">
+                    <p class="user-name">俺不懂</p>
+                </div>
+                <p class="time">2018/10/11 12:56</p>
+            </div>
+            <div class="helped-me-item">
+                <div class="user">
+                    <img src="./images/7.png" alt="7">
+                    <p class="user-name">俺不懂</p>
+                </div>
+                <p class="time">2018/10/11 12:56</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="layer4">
+        <div class="layer5"></div>
+        <img src="./images/text-2.png" alt="text">
+        <div class="poster">
+            <img alt="poster" id="show">
+            <div id="code"></div>  
+        </div>
+    </div>
+
+    <script src="./js/jquery-2.1.4.js"></script>
+    <script src="./js/jquery-qrcode.min.js"></script>
+    <script src="./js/jquery-weui.min.js"></script>
+
+    <script>
+        // 生成二维码海报
+        // 生成二维码
+        $('#code').qrcode({text:"http://www.baidu.com"});
+        // 给二维码添加id
+        var code = $('#code canvas');
+        code.attr('id','qrcode');
+        // 将生成二维码的canvas生成图片 的函数
+        function convertCanvasToImage(canvas) {
+            var image = new Image();
+            image.src = canvas.toDataURL("image/png");
+            return image.getAttribute('src');
+        }
+
+        // 用canvas画分享海报
+        var c = document.createElement('canvas');
+        var ctx = c.getContext('2d');
+
+        c.width = 590;
+        c.height = 928;
+        // 海报背景图片
+        var img = new Image();
+        img.src = './images/poster.png';
+        img.setAttribute("crossOrigin",'Anonymous')
+        
+        img.onload = function() {
+            ctx.drawImage(img,0,0,590,928);
+            var img2 = new Image()
+            // 用户头像图片地址
+            img2.src = './images/photo.jpg'
+            img2.setAttribute("crossOrigin",'Anonymous')
+
+            img2.onload = () => {
+                ctx.drawImage(img2, 60, 240,90,90);
+                var img3 = new Image()
+                // 二维码图片
+                img3.src = convertCanvasToImage(document.getElementById('qrcode'));
+                img3.setAttribute("crossOrigin",'Anonymous')
+                img3.onload = function(){
+                    ctx.drawImage(img3, 188, 450,210,210);
+                    ctx.textAlign = "center";
+                    ctx.fillStyle = '#000';
+                    ctx.font="30px Arial";
+                    // 用户名
+                    ctx.fillText("俺不懂",210,272);
+                    // 生成一张海报
+                    var base64 = c.toDataURL('image/jpeg');
+                    var show = document.getElementById('show');
+                    show.setAttribute('src',base64);
+                }
+            }
+        }
+    </script>
+
+    <script>
+        
+        // 点击邀请好友助力
+        var inviteFriendsBtn = $('.invite-friends-btn');
+        inviteFriendsBtn.click( () => $('.layer4').css('display','block'));
+
+        $('.layer5').click( () => $('.layer4').css('display','none'))
+
+
+        // 用户的心愿
+        var userWish = [
+            'afadsfdasfasdfd',
+            'adfsadfsadsfadsffasdfadsfsafsdafsadfsadfasdfasdfaddf吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜来吧sadsfadsffasdfadsfsafsdafsadfsadfasdfasdfaddf吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜来吧sadsfadsffasdfadsfsafsdafsadfsadfasdfasdfaddf吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜来吧sadsfadsffasdfadsfsafsdafsadfsadfasdfasdfaddf吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜来吧sadsfadsffasdfadsfsafsdafsadfsadfasdfasdfaddf吧来吧来吧来吧来吧梁宝玲梁宝玲白萝卜来吧来吧来吧来吧',
+        ];
+
+        // var wishContent = $('.wish-content');
+        // wishContent.innerHTML(userWish[0]);
+
+        var hasGiftImg = [
+            './images/wish-1-c.png',
+            './images/wish-2-c.png',
+            './images/wish-3-c.png',
+            './images/wish-4-c.png',
+            './images/wish-5-c.png',
+        ];
+
+        var wishContent = document.getElementsByClassName('wish-content')[0];
+        var gift = document.getElementsByClassName('check-wishes-box');
+        var giftImg = document.getElementsByClassName('gift-img');
+        wishContent.innerHTML = userWish[0];
+        for(let i = 0 ; i < gift.length ; i++) {
+            for(let x = 0 ; x < userWish.length ; x++ ) {
+                gift[x].classList.add('has-wish');
+                giftImg[x].setAttribute('src',hasGiftImg[x]);
+                gift[x].addEventListener('click',function(){
+                    wishContent.innerHTML = userWish[x];
+                    gift[i].classList.remove('pitch-on');
+                    gift[x].classList.add('pitch-on');
+                });
+            }
+        }
+
+
+    </script>
+
+    <script>
+        // 控制背景音乐
+        var Pmusic=document.getElementById("Pmusic");
+        var music=document.getElementById("music");
+        Pmusic.addEventListener('click',function(){
+            if (music.paused){
+                music.play();
+                Pmusic.classList.add("move");
+            } else {
+                music.pause();
+                Pmusic.classList.remove("move");
+            }
+        });
+        var state = 0;
+        document.addEventListener('click', function(){
+            if( state == 0 ){
+                music.play();
+                state = 1;
+            }
+        }, false);
+        document.addEventListener('DOMContentLoaded', function () {
+            function audioAutoPlay() {
+                var audio = document.getElementById('music');
+                    audio.play();
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    audio.play();
+                }, false);
+            }
+            audioAutoPlay();
+        });
+    </script>
+    
+    <script>
+        $('.back-icon').click(() => window.location.href = './index.html');
+    </script>
+
+    <script type="text/javascript" >
+        /*网页字跟随页面自动变化*/
+        function setRem(){
+            /*获取当前页面的宽度*/
+            let width = document.body.offsetWidth;
+            /*设置页面的字体大小*/
+            let nowFont= width/375*20;
+            /*通过标签名称来获取元素*/
+            let htmlFont= document.getElementsByTagName('html')[0];
+            // 给获取到的元素的字体大小赋值
+            htmlFont.style.fontSize =nowFont+"px";
+        }
+        setRem();
+        window.onresize=setRem;  //监听屏幕变化
+    </script>
+</body>
+</html>
